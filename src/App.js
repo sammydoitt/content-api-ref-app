@@ -7,8 +7,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      {console.log(this.props)}
         <Header/>
-        <RefApp/>
+        <RefApp query={this.props.location.hash} history={this.props.history}/>
       </div>
     );
   }
