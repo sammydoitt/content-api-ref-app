@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import UserData from './UserData.js'
 import {logIn} from '../api'
 
+import Button from '@material-ui/core/Button';
+
 export default class RefApp extends Component {
 
   componentDidMount(){
@@ -28,11 +30,11 @@ export default class RefApp extends Component {
 
   render(){
     const loggedIn = {button: <br/>, data: <UserData query={this.props.query} data={this.queryParser(this.props.query)}/>}
-    const notLoggedIn = {button: <button name='loggedIn' value='false' onClick={this.testOAuth.bind(this)}>Test OAuth Authorization</button>, data: ""}
+    const notLoggedIn = {button: <Button variant="contained" color="secondary" name='loggedIn' value='false' onClick={this.testOAuth.bind(this)}>Test OAuth Authorization</Button>, data: ""}
     return(
       <div>
-        {this.props.query ? loggedIn.button : notLoggedIn.button}
-        {this.props.query ? loggedIn.data : notLoggedIn.data}
+          {this.props.query ? loggedIn.button : notLoggedIn.button}
+          {this.props.query ? loggedIn.data : notLoggedIn.data}
       </div>
 
     )
