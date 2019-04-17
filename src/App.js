@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom'
 import './App.css';
 import Header from './Containers/Header.js'
-import RefApp from './Containers/RefApp.js'
+import Guide from './Containers/Guide.js'
+import Demo from './Containers/Demo.js'
 
 import Grid from '@material-ui/core/Grid';
 
 class App extends Component {
   render() {
     return (
-      <div className="App" style={{ padding: 20 }}>
-        <Grid container column spacing={8}>
+      <div className="App" >
+        <Grid container  spacing={8}>
           <Grid item xs={12}>
             <Header/>
           </Grid>
-          <Grid item xs={12}>
-            <RefApp query={this.props.location.hash} history={this.props.history}/>
-          </Grid>
+          <Switch>
+            <Route exact path="/" render={({location, history}) => <Demo query={location.hash} history={history}/>}/>
+            <Route exact path="/guide" render={({location, history}) => <Guide query={location.hash} history={history}/>}/>
+          </Switch>
+
         </Grid>
       </div>
     );
