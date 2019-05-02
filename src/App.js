@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom'
-import './App.css';
 import Header from './Containers/Header.js'
 import Guide from './Containers/Guide.js'
 import Demo from './Containers/Demo.js'
@@ -13,7 +12,7 @@ class App extends Component {
       <div className="App" >
         <Grid container  spacing={8}>
           <Grid item xs={12}>
-            <Header/>
+            <Route component={Header}/>
           </Grid>
           <Switch>
             <Route exact path="/" render={({location, history}) => <Demo query={location.hash} history={history}/>}/>

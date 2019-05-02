@@ -73,23 +73,30 @@ export default class Guide extends Component {
 
   render(){
     return(
-      <Grid container spacing={8}>
-        <Grid style={{margin: 10}} item xs={12}>
-        <form onSubmit={this.contentAPI.bind(this)}>
-          <TextField id="endpoint" label="Endpoint" value={this.state.endpoint} onChange={this.handleChange('endpoint')} fullWidth/>
-        </form>
-        </Grid>
+      <Grid container spacing={16}>
+      <div style={{maxWidth: 1000, margin: '0 auto'}} >
         <Grid item xs={12}>
-          <Button type='submit' variant="contained" color="primary"  onClick={this.contentAPI.bind(this)}>Demo Content Request</Button>
+          <Typography component="h1" variant="h2" align="center" color="textPrimary" style={{paddingTop: 40}}>Reference Application Demo</Typography>
         </Grid>
-        <Grid item xs={12}>
-          <Paper style={{padding: 10}}>
-            <Typography>Status: {this.state.status}</Typography>
-            <br/>
-            <Typography variant="body1">Body: </Typography>
-            {this.bodyContent()}
-          </Paper>
-        </Grid>
+      </div>
+        <Paper style={{width: "100%", margin: 20}}>
+          <Grid style={{margin: 10}} item xs={12}>
+            <form onSubmit={this.contentAPI.bind(this)}>
+              <TextField id="endpoint" label="Endpoint" value={this.state.endpoint} onChange={this.handleChange('endpoint')} fullWidth/>
+            </form>
+          </Grid>
+          <Grid item xs={12}>
+            <Button type='submit' variant="contained" color="primary"  onClick={this.contentAPI.bind(this)}>Demo Content Request</Button>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper style={{padding: 10}}>
+              <Typography>Status: {this.state.status}</Typography>
+              <br/>
+              <Typography variant="body1">Body: </Typography>
+              {this.bodyContent()}
+            </Paper>
+          </Grid>
+        </Paper>
       </Grid>
     )
   }

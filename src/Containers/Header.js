@@ -10,9 +10,12 @@ export default (props) => {
   <div>
     <AppBar position="relative" color="default">
       <Toolbar float="right">
-        <Typography variant="h6" color="inherit" noWrap style={{ flex: 1 }}>
+        <Typography onClick={event=>props.history.push("/")} variant="h6" color="inherit" noWrap style={{ flex: 1 }}>
           Content Api Reference App
         </Typography>
+        <Button variant="outlined" onClick={event=>props.history.push("/guide")} style={{ margin: 10 }}>
+          Application Guide
+        </Button>
         <Button variant="outlined" href="https://appdevwiki.nycnet/appdev/index.php/DoITT_Content_API" style={{ margin: 10 }}>
           Content API Wiki
         </Button>
